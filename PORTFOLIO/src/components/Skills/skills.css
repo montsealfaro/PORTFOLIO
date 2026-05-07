@@ -1,50 +1,205 @@
 .skills {
-  padding: 120px 60px;
-  position: relative;
+  width: 100%;
+  padding: 5rem 2rem;
 }
 
 .skills-title {
-  font-size: 42px;
-  margin-bottom: 60px;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: #1f1f1f;
 }
 
-/* contenedor libre */
+/* canvas */
+
 .skills-canvas {
   position: relative;
-  height: 300px;
+  width: 100%;
+  min-height: 750px;
+
+  border-radius: 40px;
+  padding: 4rem;
+
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(12px);
+
+  overflow: visible;
 }
 
-/* base */
-.skill {
+/* floating buttons */
+
+.skill-wrapper {
   position: absolute;
-  padding: 10px 18px;
-  border-radius: 999px;
-  font-size: 14px;
-  color: white;
-  cursor: pointer;
-  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* hover más orgánico */
-.skill:hover {
-  transform: scale(1.2) rotate(-3deg);
-}
+/* buttons */
 
-/* posiciones "imperfectas" */
-.s1 { top: 20%; left: 10%; background: #7ed957; }
-.s2 { top: 50%; left: 25%; background: #60a5fa; }
-.s3 { top: 30%; right: 15%; background: #ff9ecb; }
-.s4 { bottom: 20%; left: 40%; background: #facc15; color: black; }
-.s5 { bottom: 10%; right: 20%; background: #a78bfa; }
-.s6 { top: 10%; right: 30%; background: #f472b6; }
-
-/* animación flotante */
 .skill {
-  animation: float 6s ease-in-out infinite;
+  border: none;
+  cursor: pointer;
+
+  padding: 1rem 1.8rem;
+
+  border-radius: 999px;
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+
+  color: white;
+
+  white-space: nowrap;
+
+  z-index: 5;
 }
 
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
+.skill:hover {
+  transform: scale(1.06);
+}
+
+.skill.active {
+  transform: scale(1.08);
+}
+
+/* colors */
+
+.s1 {
+  background: #89d84f;
+}
+
+.s2 {
+  background: #6aa6ff;
+}
+
+.s3 {
+  background: #f58bc3;
+}
+
+.s4 {
+  background: #f7c700;
+  color: #111;
+}
+
+.s5 {
+  background: #a184ff;
+}
+
+.s6 {
+  background: #f062b5;
+}
+
+/* gallery */
+
+.gallery {
+  width: 780px;
+
+  margin-top: 1.5rem;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 1rem;
+
+  opacity: 0;
+  pointer-events: none;
+
+  transform: translateY(-10px);
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+
+  position: absolute;
+  top: 100%;
+  left: 50%;
+
+  transform: translateX(-50%) translateY(-10px);
+
+  z-index: 2;
+}
+
+.show-gallery {
+  opacity: 1;
+  pointer-events: auto;
+
+  transform: translateX(-50%) translateY(0);
+}
+
+.gallery-item {
+  width: 100%;
+  height: 240px;
+
+  border-radius: 24px;
+
+  overflow: hidden;
+
+  background: rgba(255,255,255,0.55);
+
+  backdrop-filter: blur(10px);
+
+  box-shadow:
+    0 12px 30px rgba(0,0,0,0.08);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+
+  transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.04);
+}
+
+/* responsive */
+
+@media (max-width: 900px) {
+
+  .skills-canvas {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+
+    min-height: auto;
+  }
+
+  .skill-wrapper {
+    position: relative !important;
+
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+  }
+
+  .gallery {
+    position: relative;
+
+    width: 100%;
+
+    left: auto;
+    top: auto;
+
+    transform: none;
+
+    grid-template-columns: 1fr;
+  }
+
+  .show-gallery {
+    transform: none;
+  }
+
+  .gallery-item {
+    height: 220px;
+  }
 }

@@ -1,14 +1,98 @@
+import { useState } from "react"
 import "./skills.css"
 
 export default function Skills() {
+  const [activeSkill, setActiveSkill] = useState(null)
+
   const skills = [
-    { name: "UI/UX", class: "s1" },
-    { name: "React", class: "s2" },
-    { name: "Illustration", class: "s3" },
-    { name: "Branding", class: "s4" },
-    { name: "HTML/CSS", class: "s5" },
-    { name: "Creative Coding", class: "s6" },
+    {
+      name: "UI/UX",
+      class: "s1",
+      works: [
+        "/works/uiux-1.jpg",
+        "/works/uiux-2.jpg",
+        "/works/uiux-3.jpg",
+      ],
+      style: {
+        top: "18%",
+        left: "12%",
+      },
+    },
+
+    {
+      name: "React",
+      class: "s2",
+      works: [
+        "/works/react-1.jpg",
+        "/works/react-2.jpg",
+        "/works/react-3.jpg",
+      ],
+      style: {
+        top: "42%",
+        left: "26%",
+      },
+    },
+
+    {
+      name: "Illustration",
+      class: "s3",
+      works: [
+        "/works/illustration-1.jpg",
+        "/works/illustration-2.jpg",
+        "/works/illustration-3.jpg",
+      ],
+      style: {
+        top: "25%",
+        right: "16%",
+      },
+    },
+
+    {
+      name: "Branding",
+      class: "s4",
+      works: [
+        "/works/branding-1.jpg",
+        "/works/branding-2.jpg",
+        "/works/branding-3.jpg",
+      ],
+      style: {
+        top: "55%",
+        left: "40%",
+      },
+    },
+
+    {
+      name: "HTML/CSS",
+      class: "s5",
+      works: [
+        "/works/html-1.jpg",
+        "/works/html-2.jpg",
+        "/works/html-3.jpg",
+      ],
+      style: {
+        top: "62%",
+        right: "22%",
+      },
+    },
+
+    {
+      name: "Creative Coding",
+      class: "s6",
+      works: [
+        "/works/code-1.jpg",
+        "/works/code-2.jpg",
+        "/works/code-3.jpg",
+      ],
+      style: {
+        top: "12%",
+        left: "60%",
+      },
+    },
   ]
+
+  const toggleSkill = (index) => {
+    setActiveSkill(activeSkill === index ? null : index)
+  }
 
   return (
     <section className="skills">
@@ -16,11 +100,41 @@ export default function Skills() {
       <h2 className="skills-title">What I play with</h2>
 
       <div className="skills-canvas">
+
         {skills.map((skill, i) => (
-          <span key={i} className={`skill ${skill.class}`}>
-            {skill.name}
-          </span>
+          <div
+            key={i}
+            className="skill-wrapper"
+            style={skill.style}
+          >
+
+            <button
+              className={`skill ${skill.class} ${
+                activeSkill === i ? "active" : ""
+              }`}
+              onClick={() => toggleSkill(i)}
+            >
+              {skill.name}
+            </button>
+
+            <div
+              className={`gallery ${
+                activeSkill === i ? "show-gallery" : ""
+              }`}
+            >
+              {skill.works.map((img, idx) => (
+                <div key={idx} className="gallery-item">
+                  <img
+                    src={img}
+                    alt={`${skill.name} work ${idx + 1}`}
+                  />
+                </div>
+              ))}
+            </div>
+
+          </div>
         ))}
+
       </div>
 
     </section>
