@@ -1,0 +1,65 @@
+.exp {
+  padding: 60px 80px;
+}
+
+/* TAGS */
+.exp-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.tag {
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+}
+
+.green { background: #7ed957; }
+.purple { background: #a78bfa; }
+.yellow { background: #facc15; }
+.blue { background: #60a5fa; }
+.pink { background: #ff9ecb; }
+
+/* GRID */
+.exp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* cajas */
+.box {
+  padding: 20px;
+  border-radius: 20px;
+  min-height: 120px;
+}
+
+.yellow { background: #fde68a; }
+.pink { background: #fbcfe8; }
+.blue { background: #bfdbfe; }
+
+.gradient {
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  color: white;
+}
+
+.exp {
+  margin: 40px 20px;
+}
+
+/* más parecido a tarjetas blandas */
+.box {
+  border-radius: 25px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+/* variaciones de tamaño (CLAVE visual) */
+.big {
+  grid-column: span 2;
+}
+
+.tall {
+  grid-row: span 2;
+}

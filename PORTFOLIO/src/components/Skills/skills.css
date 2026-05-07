@@ -1,0 +1,50 @@
+.skills {
+  padding: 120px 60px;
+  position: relative;
+}
+
+.skills-title {
+  font-size: 42px;
+  margin-bottom: 60px;
+}
+
+/* contenedor libre */
+.skills-canvas {
+  position: relative;
+  height: 300px;
+}
+
+/* base */
+.skill {
+  position: absolute;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+/* hover más orgánico */
+.skill:hover {
+  transform: scale(1.2) rotate(-3deg);
+}
+
+/* posiciones "imperfectas" */
+.s1 { top: 20%; left: 10%; background: #7ed957; }
+.s2 { top: 50%; left: 25%; background: #60a5fa; }
+.s3 { top: 30%; right: 15%; background: #ff9ecb; }
+.s4 { bottom: 20%; left: 40%; background: #facc15; color: black; }
+.s5 { bottom: 10%; right: 20%; background: #a78bfa; }
+.s6 { top: 10%; right: 30%; background: #f472b6; }
+
+/* animación flotante */
+.skill {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}

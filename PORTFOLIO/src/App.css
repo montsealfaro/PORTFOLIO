@@ -1,0 +1,159 @@
+/* RESET BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* VARIABLES DE DISEÑO */
+:root {
+  --bg-cream: #fffaf5;
+  --bg-pink: #ffe4ec;
+
+  --text-main: #1a1a1a;
+  --text-soft: #555;
+
+  --radius: 30px;
+  --spacing: 80px;
+}
+
+/* BODY */
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  color: var(--text-main);
+
+  background: linear-gradient(
+    120deg,
+    #fffaf5,
+    #ffe4ec,
+    #fff1f7,
+    #fffaf5
+  );
+
+  background-size: 300% 300%;
+
+  animation: gradientFlow 18s ease infinite;
+
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* CONTENEDOR GENERAL */
+section {
+  margin: 60px 20px;
+}
+
+/* TITULOS */
+h1, h2, h3 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* SUAVIZADO GENERAL */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* CARDS GLOBALES */
+.card {
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(10px);
+
+  border-radius: var(--radius);
+  padding: 20px;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* TABLET */
+@media (max-width: 900px) {
+
+  .about {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .about-card {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .hero-title {
+    font-size: 60px;
+  }
+
+  .exp-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+
+  section {
+    margin: 40px 16px;
+  }
+
+  .hero {
+    height: 60vh;
+  }
+
+  .hero-title {
+    font-size: 42px;
+  }
+
+  .about-title {
+    font-size: 48px;
+  }
+
+  .skills-canvas {
+    height: 200px;
+  }
+
+  .project-title {
+    font-size: 20px;
+  }
+
+}
+
+/* SCROLL SUAVE */
+html {
+  scroll-behavior: smooth;
+}
+
+/* SELECCIÓN DE TEXTO */
+::selection {
+  background: #fbcfe8;
+  color: black;
+}
+
+/* SUAVIZADO TIPOGRAFICO */
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+section {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(20px);
+
+  border-radius: 30px;
+  padding: 40px;
+}
+
+.hero {
+  background: none;
+}

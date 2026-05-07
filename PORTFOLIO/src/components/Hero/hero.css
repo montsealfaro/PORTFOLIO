@@ -1,0 +1,99 @@
+.hero {
+  position: relative;
+  height: 85vh;
+  border-radius: 24px;
+  overflow: hidden;
+  background: none;
+}
+
+/* fondo */
+.hero-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  z-index: 0;
+}
+
+/* overlay para contraste */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+}
+
+/* contenido central */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.hero-sub {
+  font-size: 14px;
+  letter-spacing: 2px;
+  opacity: 0.8;
+  margin-bottom: 10px;
+}
+
+.hero-title {
+  font-size: clamp(48px, 8vw, 90px);
+  font-weight: 800;
+  line-height: 0.9;
+}
+
+/* tags flotantes */
+.tags {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+}
+
+/* base */
+.tag {
+  position: absolute;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  color: white;
+  font-weight: 500;
+  backdrop-filter: blur(6px);
+  transition: transform 0.3s ease;
+}
+
+.tag:hover {
+  transform: scale(1.1) rotate(-2deg);
+}
+
+/* posiciones más naturales */
+.pink { background: #ff9ecb; top: 15%; left: 8%; }
+.green { background: #7ed957; top: 18%; right: 10%; }
+.purple { background: #a78bfa; bottom: 20%; right: 18%; }
+.yellow { background: #facc15; bottom: 12%; left: 20%; }
+.blue { background: #60a5fa; top: 50%; left: 5%; }
+
+.hero {
+  margin: 20px;
+  border-radius: 30px;
+}
+
+/* texto más aireado */
+.hero-title {
+  font-size: clamp(60px, 8vw, 110px);
+  font-weight: 800;
+  text-transform: lowercase;
+}
+
+/* posiciones más orgánicas */
+.t1 { top: 15%; left: 10%; }
+.t2 { top: 15%; right: 12%; }
+.t3 { bottom: 25%; right: 20%; }
+.t4 { bottom: 20%; left: 25%; }
+.t5 { bottom: 35%; left: 10%; }
