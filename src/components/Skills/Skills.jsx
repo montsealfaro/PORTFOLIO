@@ -1,5 +1,11 @@
 import { useState } from "react"
 import "./skills.css"
+import ilustracion01 from "../../assets/ilustracion2.png"
+import ilustracion02 from "../../assets/ilustracion3.png"
+import ilustracion03 from "../../assets/ilustracion4.png"
+import brand01 from "../../assets/brand1.png"
+import brand02 from "../../assets/brand5.png"
+import brand03 from "../../assets/logo.png"
 
 export default function Skills() {
   const [activeSkill, setActiveSkill] = useState(null)
@@ -37,9 +43,9 @@ export default function Skills() {
       name: "Illustration",
       class: "s3",
       works: [
-        "/works/illustration-1.jpg",
-        "/works/illustration-2.jpg",
-        "/works/illustration-3.jpg",
+        ilustracion01,
+        ilustracion02,
+        ilustracion03,
       ],
       style: {
         top: "25%",
@@ -51,9 +57,9 @@ export default function Skills() {
       name: "Branding",
       class: "s4",
       works: [
-        "/works/branding-1.jpg",
-        "/works/branding-2.jpg",
-        "/works/branding-3.jpg",
+        brand01,
+        brand02,
+        brand03,
       ],
       style: {
         top: "55%",
