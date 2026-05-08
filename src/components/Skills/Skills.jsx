@@ -1,3 +1,4 @@
+
 import { useState } from "react"
 import "./skills.css"
 
@@ -13,7 +14,7 @@ export default function Skills() {
 
   const [activeSkill, setActiveSkill] = useState(null)
 
-  /* NUEVO */
+  /* LIGHTBOX */
   const [selectedImage, setSelectedImage] = useState(null)
 
   const skills = [
@@ -73,66 +74,68 @@ export default function Skills() {
   }
 
   return (
-    <section className="skills">
+    <>
 
-      <h2 className="skills-title">
-        What I play with
-      </h2>
+      <section className="skills">
 
-      <div className="skills-canvas">
+        <h2 className="skills-title">
+          What I play with
+        </h2>
 
-        {skills.map((skill, i) => (
+        <div className="skills-canvas">
 
-          <div
-            key={i}
-            className="skill-wrapper"
-          >
-
-            <button
-              className={`skill ${skill.class} ${
-                activeSkill === i ? "active" : ""
-              }`}
-              onClick={() => toggleSkill(i)}
-            >
-              {skill.name}
-            </button>
+          {skills.map((skill, i) => (
 
             <div
-              className={`gallery ${
-                activeSkill === i
-                  ? "show-gallery"
-                  : ""
-              }`}
+              key={i}
+              className="skill-wrapper"
             >
 
-              {skill.works.map((img, idx) => (
+              <button
+                className={`skill ${skill.class} ${
+                  activeSkill === i ? "active" : ""
+                }`}
+                onClick={() => toggleSkill(i)}
+              >
+                {skill.name}
+              </button>
 
-                <div
-                  key={idx}
-                  className="gallery-item"
-                  onClick={() =>
-                    setSelectedImage(img)
-                  }
-                >
+              <div
+                className={`gallery ${
+                  activeSkill === i
+                    ? "show-gallery"
+                    : ""
+                }`}
+              >
 
-                  <img
-                    src={img}
-                    alt={`${skill.name} work ${idx + 1}`}
-                  />
+                {skill.works.map((img, idx) => (
 
-                </div>
+                  <div
+                    key={idx}
+                    className="gallery-item"
+                    onClick={() => setSelectedImage(img)}
+                  >
 
-              ))}
+                    <img
+                      src={img}
+                      alt={`${skill.name} work ${idx + 1}`}
+                    />
+
+                  </div>
+
+                ))}
+
+              </div>
 
             </div>
 
-          </div>
+          ))}
 
-        ))}
+        </div>
 
-      </div>
+      </section>
 
-      {/* LIGHTBOX */}
+      {/* FULLSCREEN GALLERY */}
 
       {selectedImage && (
 
@@ -152,6 +155,6 @@ export default function Skills() {
 
       )}
 
-    </section>
+    </>
   )
 }

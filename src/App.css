@@ -540,3 +540,13 @@ img {
     opacity: 1;
   }
 }
+
+/* =========================
+   IMAGE ZOOM GLOBAL
+========================= */
+
+.gallery,
+.skills-canvas,
+.skill-wrapper {
+  overflow: visible;
+}
