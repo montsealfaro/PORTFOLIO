@@ -1,3 +1,9 @@
+/* =========================
+   SKILLS SECTION
+   RESPONSIVE EN TODOS
+   LOS FORMATOS
+========================= */
+
 .skills {
   width: 100%;
   padding: 5rem 2rem;
@@ -8,40 +14,46 @@
   font-weight: 700;
   margin-bottom: 3rem;
   color: #1f1f1f;
+  line-height: 0.95;
 }
 
-/* canvas */
+/* CANVAS */
 
 .skills-canvas {
-  position: relative;
   width: 100%;
-  min-height: 750px;
 
-  border-radius: 40px;
-  padding: 4rem;
-
-  background: rgba(255,255,255,0.25);
-  backdrop-filter: blur(12px);
-
-  overflow: visible;
-}
-
-/* floating buttons */
-
-.skill-wrapper {
-  position: absolute;
   display: flex;
   flex-direction: column;
-  align-items: center;
+
+  gap: 1rem;
+
+  border-radius: 40px;
+
+  padding: 2rem;
+
+  background: rgba(255,255,255,0.25);
+
+  backdrop-filter: blur(12px);
 }
 
-/* buttons */
+/* WRAPPER */
+
+.skill-wrapper {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+}
+
+/* BUTTONS */
 
 .skill {
   border: none;
   cursor: pointer;
 
-  padding: 1rem 1.8rem;
+  padding: 1rem 1.6rem;
 
   border-radius: 999px;
 
@@ -56,18 +68,19 @@
 
   white-space: nowrap;
 
-  z-index: 5;
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.08);
 }
 
 .skill:hover {
-  transform: scale(1.06);
+  transform: scale(1.04);
 }
 
 .skill.active {
-  transform: scale(1.08);
+  transform: scale(1.05);
 }
 
-/* colors */
+/* COLORS */
 
 .s1 {
   background: #89d84f;
@@ -94,46 +107,47 @@
   background: #f062b5;
 }
 
-/* gallery */
+/* GALLERY */
 
 .gallery {
-  width: 780px;
+  width: 100%;
 
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 
   display: grid;
+
   grid-template-columns: repeat(3, 1fr);
 
   gap: 1rem;
 
+  max-height: 0;
+
+  overflow: hidden;
+
   opacity: 0;
+
   pointer-events: none;
 
-  transform: translateY(-10px);
-
   transition:
-    opacity 0.35s ease,
-    transform 0.35s ease;
-
-  position: absolute;
-  top: 100%;
-  left: 50%;
-
-  transform: translateX(-50%) translateY(-10px);
-
-  z-index: 2;
+    max-height 0.45s ease,
+    opacity 0.35s ease;
 }
+
+/* OPEN STATE */
 
 .show-gallery {
-  opacity: 1;
-  pointer-events: auto;
+  max-height: 1400px;
 
-  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+
+  pointer-events: auto;
 }
+
+/* ITEMS */
 
 .gallery-item {
   width: 100%;
-  height: 240px;
+  height: 260px;
 
   border-radius: 24px;
 
@@ -162,44 +176,71 @@
   transform: scale(1.04);
 }
 
-/* responsive */
+/* =========================
+   TABLET
+========================= */
 
 @media (max-width: 900px) {
 
-  .skills-canvas {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-
-    min-height: auto;
+  .skills {
+    padding: 4rem 1.2rem;
   }
 
-  .skill-wrapper {
-    position: relative !important;
-
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
+  .skills-canvas {
+    padding: 1.5rem;
   }
 
   .gallery {
-    position: relative;
-
-    width: 100%;
-
-    left: auto;
-    top: auto;
-
-    transform: none;
-
-    grid-template-columns: 1fr;
-  }
-
-  .show-gallery {
-    transform: none;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .gallery-item {
     height: 220px;
   }
 }
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 430px) {
+
+  .skills {
+    padding: 3rem 1rem;
+  }
+
+  .skills-title {
+    font-size: 2.5rem;
+
+    margin-bottom: 2rem;
+  }
+
+  .skills-canvas {
+    padding: 1rem;
+
+    border-radius: 28px;
+  }
+
+  .skill {
+    width: auto;
+
+    min-width: 110px;
+
+    padding: 0.85rem 1.2rem;
+
+    font-size: 0.9rem;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+
+    gap: 0.8rem;
+  }
+
+  .gallery-item {
+    height: 190px;
+
+    border-radius: 18px;
+  }
+}
+

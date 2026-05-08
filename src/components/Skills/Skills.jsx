@@ -1,14 +1,20 @@
 import { useState } from "react"
 import "./skills.css"
+
 import ilustracion01 from "../../assets/ilustracion2.png"
 import ilustracion02 from "../../assets/ilustracion3.png"
 import ilustracion03 from "../../assets/ilustracion4.png"
+
 import brand01 from "../../assets/brand1.png"
 import brand02 from "../../assets/brand5.png"
 import brand03 from "../../assets/logo.png"
 
 export default function Skills() {
+
   const [activeSkill, setActiveSkill] = useState(null)
+
+  /* NUEVO */
+  const [selectedImage, setSelectedImage] = useState(null)
 
   const skills = [
     {
@@ -19,24 +25,12 @@ export default function Skills() {
         "/works/uiux-2.jpg",
         "/works/uiux-3.jpg",
       ],
-      style: {
-        top: "18%",
-        left: "12%",
-      },
     },
 
     {
       name: "React",
       class: "s2",
-      works: [
-        "/works/react-1.jpg",
-        "/works/react-2.jpg",
-        "/works/react-3.jpg",
-      ],
-      style: {
-        top: "42%",
-        left: "26%",
-      },
+      works: [],
     },
 
     {
@@ -47,10 +41,6 @@ export default function Skills() {
         ilustracion02,
         ilustracion03,
       ],
-      style: {
-        top: "25%",
-        right: "16%",
-      },
     },
 
     {
@@ -61,57 +51,41 @@ export default function Skills() {
         brand02,
         brand03,
       ],
-      style: {
-        top: "55%",
-        left: "40%",
-      },
     },
 
     {
       name: "HTML/CSS",
       class: "s5",
-      works: [
-        "/works/html-1.jpg",
-        "/works/html-2.jpg",
-        "/works/html-3.jpg",
-      ],
-      style: {
-        top: "62%",
-        right: "22%",
-      },
+      works: [],
     },
 
     {
       name: "Creative Coding",
       class: "s6",
-      works: [
-        "/works/code-1.jpg",
-        "/works/code-2.jpg",
-        "/works/code-3.jpg",
-      ],
-      style: {
-        top: "12%",
-        left: "60%",
-      },
+      works: [],
     },
   ]
 
   const toggleSkill = (index) => {
-    setActiveSkill(activeSkill === index ? null : index)
+    setActiveSkill(
+      activeSkill === index ? null : index
+    )
   }
 
   return (
     <section className="skills">
 
-      <h2 className="skills-title">What I play with</h2>
+      <h2 className="skills-title">
+        What I play with
+      </h2>
 
       <div className="skills-canvas">
 
         {skills.map((skill, i) => (
+
           <div
             key={i}
             className="skill-wrapper"
-            style={skill.style}
           >
 
             <button
@@ -125,23 +99,58 @@ export default function Skills() {
 
             <div
               className={`gallery ${
-                activeSkill === i ? "show-gallery" : ""
+                activeSkill === i
+                  ? "show-gallery"
+                  : ""
               }`}
             >
+
               {skill.works.map((img, idx) => (
-                <div key={idx} className="gallery-item">
+
+                <div
+                  key={idx}
+                  className="gallery-item"
+                  onClick={() =>
+                    setSelectedImage(img)
+                  }
+                >
+
                   <img
                     src={img}
                     alt={`${skill.name} work ${idx + 1}`}
                   />
+
                 </div>
+
               ))}
+
             </div>
 
           </div>
+
         ))}
 
       </div>
+
+      {/* LIGHTBOX */}
+
+      {selectedImage && (
+
+        <div
+          className="lightbox"
+          onClick={() => setSelectedImage(null)}
+        >
+
+          <img
+            src={selectedImage}
+            alt="preview"
+            className="lightbox-image"
+            onClick={(e) => e.stopPropagation()}
+          />
+
+        </div>
+
+      )}
 
     </section>
   )
