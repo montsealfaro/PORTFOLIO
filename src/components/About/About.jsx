@@ -15,18 +15,19 @@ export default function About() {
       <div className="about-left">
 
         <h2 className="about-title">
-          <span className="s1">S</span>
-          <span className="s2">a</span>
+          <span className="s1">H</span>
+          <span className="s2">o</span>
           <span className="s3">l</span>
-          <span className="s4">u</span>
-          <span className="s5">t</span>
+          <span className="s4">a</span>
           <span className="s6">!</span>
         </h2>
 
         <p className="about-text">
-          Je suis Montserrat, une designer et développeuse en devenir.
-          Passionnée par le design web et l’expérience utilisateur,
-          je crée des univers visuels immersifs, sensibles et intuitifs.
+          Soy Montserrat, aspirante a diseñadora y desarrolladora.
+
+Me apasiona el diseño web y la experiencia de usuario.
+
+Creo mundos visuales inmersivos, responsivos e intuitivos.
         </p>
 
         <a className="about-link" href="https://linkedin.com/in/montserrat-alfaro-187338193"> 

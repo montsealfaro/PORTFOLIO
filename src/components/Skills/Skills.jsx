@@ -10,6 +10,10 @@ import brand01 from "../../assets/brand1.png"
 import brand02 from "../../assets/brand5.png"
 import brand03 from "../../assets/logo.png"
 
+import ux01 from "../../assets/ux1.png"
+import ux02 from "../../assets/ux2.png"
+import ux03 from "../../assets/ux3.png"
+
 export default function Skills() {
 
   const [activeSkill, setActiveSkill] = useState(null)
@@ -22,9 +26,9 @@ export default function Skills() {
       name: "UI/UX",
       class: "s1",
       works: [
-        "/works/uiux-1.jpg",
-        "/works/uiux-2.jpg",
-        "/works/uiux-3.jpg",
+        ux01,
+        ux02,
+        ux03,
       ],
     },
 
